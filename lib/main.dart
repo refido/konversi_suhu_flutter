@@ -10,12 +10,12 @@ void main() {
 
 class MyApp extends StatefulWidget {
   @override
-  MyAppState createState() => MyAppState();
+  _MyAppState createState() => _MyAppState();
 }
 
-class MyAppState extends State<MyApp> {
+class _MyAppState extends State<MyApp> {
   List<String> listViewItem = List<String>();
-  String newValue = "Kelvin";
+  String _newValue = "Kelvin";
   double _result = 0;
 
   TextEditingController suhu = new TextEditingController();
@@ -24,22 +24,23 @@ class MyAppState extends State<MyApp> {
   // double _kelvin = 0;
   // double _reamor = 0;
   var listItem = ["Kelvin", "Reamur", "Fahrenheit"];
-  void hitungSuhu() {
+  void _hitungSuhu() {
     setState(() {
       _inputSuhu = double.parse(suhu.text);
-      if (newValue == "Kelvin")
+      if (_newValue == "Kelvin")
         _result = _inputSuhu + 273;
-      else if (newValue == "Reamur")
+      else if (_newValue == "Reamur")
         _result = (4 / 5) * _inputSuhu;
       else
         _result = (_inputSuhu * 9 / 5) + 32;
-      listViewItem.add("$newValue : $_result");
+      listViewItem.add("$_newValue : $_result");
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Konverter Suhu',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -61,16 +62,16 @@ class MyAppState extends State<MyApp> {
                     child: Text(value),
                   );
                 }).toList(),
-                value: newValue,
+                value: _newValue,
                 onChanged: (String changeValue) {
                   setState(() {
-                    newValue = changeValue;
-                    hitungSuhu();
+                    _newValue = changeValue;
+                    _hitungSuhu();
                   });
                 },
               ),
               Result(result: _result),
-              Convert(konvertHandler: hitungSuhu),
+              Convert(konvertHandler: _hitungSuhu),
               Container(
                 margin: EdgeInsets.only(top: 10, bottom: 10),
                 child: Text(

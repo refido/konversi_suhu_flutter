@@ -1,10 +1,5 @@
 ## Hasil run
-![gambar 1](image/1.jpeg)
-
-# gambar diabil sesudah konversi
-![gambar 2](image/2.jpeg)
-![gambar 3](image/3.jpeg)
-![gambar 4](image/4.jpeg)
+![gambar 5](image/5.jpeg)
 
 
 # konversi_suhu
